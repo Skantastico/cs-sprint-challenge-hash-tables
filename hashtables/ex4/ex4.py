@@ -1,8 +1,14 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    neg_cache = {}
+
+    for i in a:
+        neg_cache[i] = -i
+
+    result = []
+
+    for i in neg_cache.keys():
+        if i > 0 and neg_cache[i] in neg_cache:
+            result.append(i)
 
     return result
 
