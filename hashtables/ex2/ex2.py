@@ -6,9 +6,19 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    # hash each ticket with source and destination being key and value
+    ticket_cache = {}
+    route = [None] * length
 
+    for ticket in tickets:
+        ticket_cache[ticket.source] = ticket.destination
+    next = ticket_cache["NONE"]
+
+    for i in range(0, length):
+        route[i] = next
+        next = ticket_cache[next]
     return route
+
+
+
+# for testing
